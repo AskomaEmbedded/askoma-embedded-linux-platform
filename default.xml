@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <remote fetch="git://git.yoctoproject.org" name="yocto"/>
+  <remote fetch="git://git.openembedded.org" name="oe"/>
+  <remote fetch="https://github.com" name="github"/>
+
+  <!-- ### Yocto Project release used as default for all included layers and components ### -->
+  <default revision="kirkstone"/>
+
+  <!-- Open Embedded Layers -->
+  <project remote="oe" revision="2.0" name="bitbake" path="sources/bitbake"/>
+  <project remote="oe" name="openembedded-core" path="sources/openembedded-core"/>
+  <project remote="oe" name="meta-openembedded" path="sources/meta-openembedded"/>
+
+  <!-- O.S. Systems Yocto BSP Layers, confs and tools -->
+  <project remote="github" revision="master" name="OSSystemsEmbeddedLinux/ye" path="sources/ye"/>
+  <project remote="github" name="OSSystemsEmbeddedLinux/meta-ossystems-base" path="sources/meta-ossystems-base"/>
+  <project remote="github" name="OSSystemsEmbeddedLinux/ossystems-yocto-base-scripts" path="sources/base">
+    <copyfile dest="setup-environment" src="setup-environment"/>
+  </project>
+
+  <!-- Freescale BSP components -->
+  <project remote="github" name="Freescale/meta-freescale" path="sources/meta-freescale"/>
+
+  <!-- ### Project specific configuration ### -->
+  <project remote="github" revision="master" name="AskomaEmbedded/askoma-embedded-linux-platform" path="sources/platform"/>
+  <project remote="github" name="AskomaEmbedded/meta-askoma-bsp" path="sources/meta-askoma-bsp"/>
+</manifest>  
